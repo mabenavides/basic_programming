@@ -1,6 +1,6 @@
 ---
 title: "Programming Exercises"
-author: "Your name"
+author: "Maria Benavides"
 output: github_document
 ---
 
@@ -16,11 +16,40 @@ library(tidyverse)
 
 ```{r}
 
+# Familiarize with the iris dataset
+
+names(iris)
+
+# Create a vector to store the values 
+
+uniq_val_iris_loop <- 
+  vector("numeric", ncol(iris))
+
+# Compute unique values with for loop
+
+for (i in seq_along(iris)) {
+  uniq_val_iris_loop[[i]] <- length(unique(iris[[i]])) # unique creates a list of the unique values
+}
+
+# Print results 
+
+print(uniq_val_iris_loop)
+
 ```
 
 ### Using a `map` function
 
 ```{r}
+
+# Compute unique values with map
+
+uniq_val_iris_map <- iris %>%
+  map(unique) %>%
+  map_dbl(length)
+
+# Print results 
+
+print(uniq_val_iris_map)
 
 ```
 
@@ -29,11 +58,41 @@ library(tidyverse)
 ```{r}
 x <- seq(from = 30, to = 1)
 x
+
+# Create square function
+
+square <- function(x){
+  return(x^2)
+}
+
+# Use function to square values in x 
+
+square_x <- square(x)
+
+# Print results 
+
+print(square_x)
+
 ```
 
 ### Using a `for` loop
 
 ```{r}
+
+# Create a vector to store the values (with a different approach than the previous exercise)
+
+square_x_loop <- c()  # This creates an empty vector 
+
+# Calculate squares for each value on x with a for loop
+
+for (i in seq_along(x)) {
+  square_x_loop[[i]] <- (x[[i]])^2
+}
+
+# Print results 
+
+print(square_x_loop)
+
 
 ```
 
@@ -41,11 +100,69 @@ x
 
 ```{r}
 
+# Compute unique values with map (and the function I created before)
+
+square_x_map <- map_dbl(x, square)
+
+# Print results 
+
+print(square_x_map)
+
 ```
 
 ## Write a function to calculate length of sides in a right-triangle using the Pythagorean Theorem
 
 ```{r}
+
+# Set conditions and errors for when user does not include two values 
+
+pythagorean_th <- function(a = NULL, b = NULL, c = NULL) {
+  if (is.null(a) & is.null(b) & is.null(c)) {
+    stop("Most include two numeric values")
+  } else if (is.null(a) & is.null(b)) {
+    stop("Most include two numeric values")
+  } else if (is.null(b) & is.null(c)) {
+    stop("Most include two numeric values")
+  } else if(is.null(a) & is.null(c)) {
+    stop("Most include two numeric values")
+  } else if (!is.null(a) & !is.null(b) & !is.null(c)) {
+    stop("Most include two numeric values")
+  } 
+
+# Calculate lenght of third side, when user includes the length of two sides 
+  
+  if (is.null(c)) {
+    if (is.numeric(a) & is.numeric(b)) {  # Condition for when the values are not numeric 
+      return(sqrt(a^2 + b^2)) 
+      } else {
+        stop("a or b are non-numeric values")
+      } 
+    
+  } else if (is.null(a)) {
+    if (is.numeric(b) & is.numeric(c)) {
+      return(sqrt(c^2-b^2)) 
+      } else {
+        stop("b or b are non-numeric values")
+      }
+    
+  } else {
+    if (is.numeric(a) & is.numeric(c)) {
+      return(sqrt(c^2-a^2)) 
+      } else {
+        stop("a or c are non-numeric values")
+      }
+    }
+}
+
+# Try function with different values 
+
+print(pythagorean_th (a = 3, b = 4))
+
+print(pythagorean_th (b = 4, c = 5))
+
+print(pythagorean_th (c = 5, a = 3))
+
+
 
 ```
 
