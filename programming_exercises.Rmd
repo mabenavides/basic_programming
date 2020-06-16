@@ -18,7 +18,7 @@ library(tidyverse)
 
 # Familiarize with the iris dataset
 
-names(iris)
+names(iris) 
 
 # Create a vector to store the values 
 
