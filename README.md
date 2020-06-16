@@ -8,7 +8,7 @@ In this repository, I implemented elemental programming techniques in both contr
 
 * Tidyverse
 
-### Modified files
+### Files
 
 * [programming_exercises.Rmd](programming_exercises.Rmd): contains basic programming, using for loops and functions
 * [programming_exercises.md](programming_exercises.md): corresponds to the rendered version of the previous file
