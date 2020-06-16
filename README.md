@@ -14,5 +14,5 @@ In this repository, I implemented elemental programming techniques in both contr
 * [programming_exercises.md](programming_exercises.md): corresponds to the rendered version of the previous file
 * [data_world_bank](data_world_bank): folder with the World Bank data sets I used
 * [world_bank.md](world_bank.md): contains the code for the function that imports and tidy the data sets
-* [programming_exercises.md](programming_exercises.md): corresponds to the rendered version of the previous file
+* [world_bank.md](world_bank.md): corresponds to the rendered version of the previous file
 * [world_bank_files](world_bank_files): contains all the graphs I generated
